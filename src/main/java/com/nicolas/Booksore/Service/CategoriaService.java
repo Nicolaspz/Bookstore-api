@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.nicolas.Booksore.Exception.ObjectNotFoundException;
 import com.nicolas.Booksore.domain.Categoria;
+import com.nicolas.Booksore.dtos.CategoriaDTO;
 import com.nicolas.Booksore.repositories.CategoriRepository;
 
 @Service
@@ -28,6 +29,15 @@ public class CategoriaService {
 	public Categoria create(Categoria obj) {
 		obj.setId(null);
 		return categoriRepository.save(obj);
+		
+	}
+
+	public Categoria update(Integer id, CategoriaDTO objDto) {
+		Categoria obj = findById(id);
+		obj.setNome(objDto.getNome());
+		obj.setDescricao(objDto.getDescricao());
+		return categoriRepository.save(obj);
+		
 		
 	}
 }
