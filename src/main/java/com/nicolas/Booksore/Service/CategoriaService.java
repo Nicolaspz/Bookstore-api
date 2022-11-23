@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
 
 import com.nicolas.Booksore.Exception.ObjectNotFoundException;
 import com.nicolas.Booksore.domain.Categoria;
@@ -43,7 +45,11 @@ public class CategoriaService {
 
 	public void delete(Integer id) {
 		Categoria obj = findById(id);
-		categoriRepository.delete(obj);
+		try {
+			categoriRepository.delete(obj);
+		} catch (DataIntegrityViolationException e) {
+			throw new com.nicolas.Booksore.Exception.DataIntegrityViolationException("Categoria não de ser deletada, possui Livros Associados");
+		}
 		
 	}
 }
