@@ -1,5 +1,6 @@
 package com.nicolas.Booksore.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,4 +22,7 @@ public class CategoriaService {
 				"Object não encontrado ID " + id + " Tipo " + Categoria.class.getName()));
 	}
 
+	public List<Categoria> findAll() {
+		return categoriRepository.findAll();
+	}
 }
