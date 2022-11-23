@@ -22,6 +22,8 @@ public class DBService {
 	
 	public void InstaciaBaseDeDados() {
 		Categoria cat1 = new Categoria(null, "Matemática", "Calculos de Integrais");
+		Categoria cat4 = new Categoria(null, "Testando Eliminat", "Teste");
+		Categoria cat5 = new Categoria(null, "Testando Eliminat", "Teste1");
 		Livro l1 = new Livro(null, "Testes", "Nic", "Lorem Ipsun", cat1);
 
 		Categoria cat2 = new Categoria(null, "Infoemática", "Poesia nua e Crua");
@@ -33,7 +35,7 @@ public class DBService {
 		cat3.getLivros().addAll(Arrays.asList(l3));
 		cat2.getLivros().addAll(Arrays.asList(l0));
 		cat1.getLivros().addAll(Arrays.asList(l1));
-		this.cate.saveAll(Arrays.asList(cat2, cat3,cat1));
+		this.cate.saveAll(Arrays.asList(cat2, cat3,cat1,cat4,cat5));
 		this.livro.saveAll(Arrays.asList(l0, l2, l3,l1));
 	}
 

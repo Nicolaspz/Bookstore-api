@@ -40,4 +40,10 @@ public class CategoriaService {
 		
 		
 	}
+
+	public void delete(Integer id) {
+		Categoria obj = findById(id);
+		categoriRepository.delete(obj);
+		
+	}
 }
