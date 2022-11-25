@@ -30,13 +30,16 @@ public class DBService {
 		Livro l2 = new Livro(null, "Tec", "Robert Martin", "Lorem Ipsun", cat2);
 		Categoria cat3 = new Categoria(null, "TI", "Poesia nua e Crua");
 		Livro l3 = new Livro(null, "Over Day", "Robert Martin", "Lorem Ipsun", cat3);
-		Livro l0 = new Livro(null, "PP", "Nic", "Lorem Ipsun", cat2);
+		Livro l0 = new Livro(null, "Vida", "Nic", "Lorem Ipsun", cat2);
+		Livro l4 = new Livro(null, "Orror", "Nic", "Lorem Ipsun", cat2);
+		Livro l5 = new Livro(null, "ZE ZE", "Nic", "Lorem Ipsun", cat2);
+		Livro l6 = new Livro(null, "OOOmkjvf", "Nic", "Lorem Ipsun", cat2);
 		cat2.getLivros().addAll(Arrays.asList(l2));
 		cat3.getLivros().addAll(Arrays.asList(l3));
-		cat2.getLivros().addAll(Arrays.asList(l0));
+		cat2.getLivros().addAll(Arrays.asList(l0,l4,l5,l6));
 		cat1.getLivros().addAll(Arrays.asList(l1));
 		this.cate.saveAll(Arrays.asList(cat2, cat3,cat1,cat4,cat5));
-		this.livro.saveAll(Arrays.asList(l0, l2, l3,l1));
+		this.livro.saveAll(Arrays.asList(l0, l2, l3,l1,l4,l5,l6));
 	}
 
 }
