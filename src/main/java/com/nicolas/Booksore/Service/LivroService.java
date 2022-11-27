@@ -68,4 +68,11 @@ public class LivroService {
 		return repository.save(obj);
 	}
 
+
+
+	public List<Livro> Listar() {
+		
+		return repository.findAll();
+	}
+
 }

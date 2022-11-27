@@ -45,6 +45,12 @@ public class LivroResource {
 		List<LivroDTO> listDTO= list.stream().map(obj-> new LivroDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
+	@GetMapping(value = "/list")
+	public ResponseEntity<List<LivroDTO>> todosLivros(){
+		List<Livro> list = Service.Listar();
+		List<LivroDTO> listDTO= list.stream().map(obj-> new LivroDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
 	
 	@PostMapping
 	public ResponseEntity<Livro> create( @RequestParam(value = "categoria", defaultValue = "0") Integer id_cat,@Valid @RequestBody Livro obj){
