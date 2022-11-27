@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,8 +22,14 @@ public class Livro implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotEmpty(message = "O campo Titulo não pode ser Vazio!")
+	@Length(min = 3, max =50, message = "O campo  deve ter entre 3 e 50 caracteres")
 	private String titulo;
+	@NotEmpty(message = "O campo Nome_Autor não pode ser Vazio!")
+	@Length(min = 3, max =50, message = "O campo  deve ter entre 3 e 50 caracteres")
 	private String nome_autor;
+	@NotEmpty(message = "O campo TEXTO não pode ser Vazio!")
+	@Length(min = 10, max =2000000, message = "O campo  deve ter entre 10 e 2000000 caracteres")
 	private String Texto;
 	
 	@JsonIgnore

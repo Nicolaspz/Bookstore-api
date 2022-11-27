@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Categoria implements Serializable {
@@ -16,7 +19,12 @@ public class Categoria implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotEmpty(message = "O nome não pode ser Vazio!")
 	private String nome;
+	
+	@NotEmpty(message = "O campo Descrição não pode ser Vazio!")
+	@Length(min = 3, max = 200, message = "O campo DESCRICAO deve ter entre 3 e 200 caracteres")
 	private String descricao;
 	
 	@OneToMany(mappedBy = "categoria")
